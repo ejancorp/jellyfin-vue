@@ -199,17 +199,17 @@
                           <queue-button
                             :nudge-top="$vuetify.breakpoint.mdAndUp ? 60 : 30"
                             :close-on-click="true"
-                            @input="onQueueChangeHandler($event)"
+                            @input="onMenuOpen($event)"
                           />
                           <subtitle-selection-button
                             v-if="$vuetify.breakpoint.smAndUp"
                             :nudge-top="$vuetify.breakpoint.mdAndUp ? 60 : 30"
-                            @input="onQueueChangeHandler($event)"
+                            @input="onMenuOpen($event)"
                           />
                           <playback-settings-button
                             :nudge-top="$vuetify.breakpoint.mdAndUp ? 60 : 30"
-                            @input="onQueueChangeHandler($event)"
-                            @open-playback-data="onOpenPlaybackData"
+                            @input="onMenuOpen($event)"
+                            @open-playback-data="playbackData = true"
                           />
                           <v-btn
                             v-if="$features.pictureInPicture"
@@ -585,7 +585,7 @@ export default Vue.extend({
         wrap: true
       });
     },
-    onQueueChangeHandler(value: boolean): void {
+    onMenuOpen(value: boolean): void {
       this.keepOpen = value;
 
       if (value && this.fullScreenOverlayTimer) {
@@ -594,9 +594,6 @@ export default Vue.extend({
       } else if (!value) {
         this.setFullscreenTimeout();
       }
-    },
-    onOpenPlaybackData(): void {
-      this.playbackData = true;
     }
   }
 });
