@@ -6,6 +6,7 @@
     "lib": ["ESNext", "ESNext.AsyncIterable"],
     "strict": true,
     "noEmit": true,
+    "resolveJsonModule": true,
     "baseUrl": ".",
     "types": ["@types/node"]
   },
