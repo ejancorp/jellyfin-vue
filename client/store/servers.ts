@@ -9,13 +9,13 @@ export interface ServerInfo {
 }
 
 export interface ServerState {
-  serverUsed: ServerInfo | server;
+  serverUsed: ServerInfo;
   serverList: ServerInfo[];
 }
 
 export const defaultState = (): ServerState => ({
   serverUsed: {
-    address: '',
+    address: server,
     publicInfo: {}
   },
   serverList: []
